@@ -12,14 +12,14 @@ interface ApiService {
         @Field("name") name: String,
         @Field("email") email: String,
         @Field("password") password: String,
-        @Field("mobile") mobile: Long,
+        @Field("mobile") mobile: String,
         @Field("gender") gender: String,
         @Field("age") age: Int,
         @Field("status") status: Int
     ): Call<RegisterResponse>
 
     @FormUrlEncoded
-    @POST("api/login")
+    @POST("api/user/login")
     fun loginUser(
         @Field("email") email: String,
         @Field("password") password: String
