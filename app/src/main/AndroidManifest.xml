@@ -46,15 +46,7 @@
 
         </activity>
         <activity
-            android:name=".VoucherPage">
-
-        </activity>
-        <activity
             android:name=".ChatPage">
-
-        </activity>
-        <activity
-            android:name=".UploadPage">
 
         </activity>
         <activity

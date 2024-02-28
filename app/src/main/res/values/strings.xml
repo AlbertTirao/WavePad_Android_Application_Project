@@ -2,9 +2,6 @@
     <string name="app_name">WavePad</string>
     <string name="nav_open">Open Drawer</string>
     <string name="nav_close">Close Drawer</string>
-    <string name="choose_image" />
-    <string name="upload_image" />
-    <string name="image_view" />
 
     <!-- BirthYear dropbox -->
 

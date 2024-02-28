@@ -52,9 +52,9 @@
                     android:id="@+id/sellerTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Seller"
+                    android:text="Member"
                     android:textColor="@color/white"
-                    android:textSize="14sp"
+                    android:textSize="10sp"
                     android:textStyle="bold"
                     android:padding="4dp"/>
 
@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:text="Contact Info:"
                     android:textColor="@color/white"
-                    android:textSize="14sp"
+                    android:textSize="10sp"
                     android:textStyle="bold"
                     android:padding="4dp"/>
             </LinearLayout>
@@ -80,31 +80,11 @@
                 android:id="@+id/editprofile"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginEnd="105dp"
+                android:layout_marginEnd="285dp"
                 android:text="Edit Profile"
                 android:textColor="@color/white"
-                android:textSize="14sp"
+                android:textSize="10sp"
                 android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/followers"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:text="Followers 0"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/followings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Followings 0"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:layout_marginEnd="10dp"/>
 
         </LinearLayout>
 
@@ -131,10 +111,11 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="1dp"
                 android:layout_marginStart="5dp"
+                android:paddingLeft="30dp"
                 android:drawablePadding="8dp"
                 android:text="My Purchase"
                 android:textColor="@color/darkshadeofcyan"
-                android:textSize="23sp"
+                android:textSize="16sp"
                 android:textStyle="normal"
                 android:layout_alignParentStart="true" />
 
@@ -146,9 +127,10 @@
                 android:layout_marginBottom="1dp"
                 android:layout_marginStart="5dp"
                 android:drawablePadding="8dp"
+                android:paddingLeft="30dp"
                 android:text="My Shop"
                 android:textColor="@color/darkshadeofcyan"
-                android:textSize="23sp"
+                android:textSize="16sp"
                 android:textStyle="normal"
                 android:layout_below="@id/myPurchase"
                 android:layout_alignParentStart="true" />
@@ -164,7 +146,7 @@
                 android:drawableLeft="@drawable/baseline_shopping_cart_24"
                 android:text="Add to Cart"
                 android:textColor="@color/darkshadeofcyan"
-                android:textSize="23sp"
+                android:textSize="16sp"
                 android:textStyle="normal"
                 android:layout_below="@id/myShop"
                 android:layout_alignParentStart="true" />
@@ -180,7 +162,7 @@
                 android:drawableLeft="@drawable/baseline_app_registration_24"
                 android:text="Register"
                 android:textColor="@color/darkshadeofcyan"
-                android:textSize="23sp"
+                android:textSize="16sp"
                 android:textStyle="normal"
                 android:layout_below="@id/addtocart"
                 android:layout_alignParentStart="true" />
@@ -197,7 +179,7 @@
                 android:drawableTint="@color/yellow"
                 android:text="Ratings"
                 android:textColor="@color/darkshadeofcyan"
-                android:textSize="23sp"
+                android:textSize="16sp"
                 android:textStyle="normal"
                 android:layout_below="@id/register"
                 android:layout_alignParentStart="true" />
@@ -214,7 +196,7 @@
                 android:drawableLeft="@drawable/baseline_privacy_tip_24"
                 android:text="Privacy"
                 android:textColor="@color/darkshadeofcyan"
-                android:textSize="23sp"
+                android:textSize="16sp"
                 android:textStyle="normal"
                 android:layout_below="@id/ratings"
                 android:layout_alignParentStart="true" />
@@ -230,7 +212,7 @@
                 android:drawableLeft="@drawable/baseline_logout_24"
                 android:text="Log Out"
                 android:textColor="@color/darkshadeofcyan"
-                android:textSize="23sp"
+                android:textSize="16sp"
                 android:textStyle="normal"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentStart="true" />

@@ -10,14 +10,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class ProductAdapter(
-
-
     private var productList: List<ProductDataClass>,
     private val onItemClick: (ProductDataClass) -> Unit,
     private val onBuyButtonClick: (ProductDataClass) -> Unit
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
-    private var filteredList: List<ProductDataClass> = productList
+    // Initialize filteredList with a copy of productList in the constructor
+    private var filteredList: List<ProductDataClass> = productList.toList()
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val titleTextView: TextView = itemView.findViewById(R.id.text_product_name)

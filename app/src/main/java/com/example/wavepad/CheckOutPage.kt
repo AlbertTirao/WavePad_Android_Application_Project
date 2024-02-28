@@ -20,9 +20,6 @@ class CheckOutPage : AppCompatActivity() {
     private lateinit var textProductName: TextView
     private lateinit var textQuantity: TextView
     private lateinit var buttonCheckout: Button
-    private lateinit var editVoucherCode: EditText
-    private lateinit var buttonApplyVoucher: Button
-    private lateinit var buttonViewVouchers: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,9 +36,6 @@ class CheckOutPage : AppCompatActivity() {
         textProductName = findViewById(R.id.text_product_name)
         textQuantity = findViewById(R.id.text_quantity)
         buttonCheckout = findViewById(R.id.button_checkout)
-        editVoucherCode = findViewById(R.id.edit_voucher_code)
-        buttonApplyVoucher = findViewById(R.id.button_apply_voucher)
-        buttonViewVouchers = findViewById(R.id.button_view_vouchers)
 
         val productName = intent.getStringExtra("PRODUCT_NAME")
         val quantity = intent.getIntExtra("QUANTITY", 1)
@@ -52,22 +46,5 @@ class CheckOutPage : AppCompatActivity() {
         buttonCheckout.setOnClickListener {
             // Implement checkout functionality here
         }
-
-        buttonApplyVoucher.setOnClickListener {
-            applyVoucher()
-        }
-
-        buttonViewVouchers.setOnClickListener {
-            viewAllVouchers()
-        }
-    }
-
-    private fun applyVoucher() {
-        val voucherCode = editVoucherCode.text.toString()
-    }
-
-    private fun viewAllVouchers() {
-        val intent = Intent(this, VoucherPage::class.java)
-        startActivity(intent)
     }
 }

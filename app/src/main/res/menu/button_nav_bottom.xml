@@ -5,20 +5,13 @@
         android:title="Home"
         android:icon="@drawable/baseline_home_24"
         android:id="@+id/home"/>
-    <item
-        android:title="Voucher"
-        android:icon="@drawable/voucher_logo"
-        android:id="@+id/voucher" />
-    <item
-        android:title=""
-        android:id="@+id/Upload"/>
 
     <item
         android:title="Chat"
         android:icon="@drawable/chat_logo"
         android:id="@+id/chat"/>
     <item
-        android:title="Account"
+        android:title="Me"
         android:icon="@drawable/baseline_account_circle_24"
         android:id="@+id/account"/>
 
