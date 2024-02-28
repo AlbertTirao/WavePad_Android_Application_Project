@@ -141,18 +141,18 @@ class HomePage : AppCompatActivity() {
         productAdapter.notifyDataSetChanged()
 
         // Continue with existing code
-        productService.getProducts { products ->
-            productList.clear()
-            products?.let {
-                productList.addAll(it)
-
-                // Update filteredList
-                filteredList = productList.toList()
-
-                // Notify the adapter that the data set has changed
-                productAdapter.notifyDataSetChanged()
-            }
-        }
+//        productService.getProducts { products ->
+//            productList.clear()
+//            products?.let {
+//                productList.addAll(it)
+//
+//                // Update filteredList
+//                filteredList = productList.toList()
+//
+//                // Notify the adapter that the data set has changed
+//                productAdapter.notifyDataSetChanged()
+//            }
+//        }
     }
 
 

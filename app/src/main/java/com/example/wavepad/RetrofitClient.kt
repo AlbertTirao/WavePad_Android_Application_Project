@@ -10,24 +10,25 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+
 object RetrofitClient {
-    private const val BASE_URL = "http://your_base_url_here/"
+    private const val BASE_URL = "https://wavepad-ecom-529a3cf49f8f.herokuapp.com/"
+    private val okHttpClient = OkHttpClient.Builder()
+        .addInterceptor{chain ->
+            val original = chain.request()
+            val requestBuilder = original.newBuilder()
+                .method(original.method, original.body)
+            val request = requestBuilder.build()
+            chain.proceed(request)
+        }.build()
 
-    private val loggingInterceptor = HttpLoggingInterceptor().apply {
-        level = HttpLoggingInterceptor.Level.BODY
-    }
+    val instance: ApiService by lazy {
+        val retrofit = Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(okHttpClient)
+            .build()
 
-    private val client = OkHttpClient.Builder()
-        .addInterceptor(loggingInterceptor)
-        .build()
-
-    private val retrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .client(client)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-
-    fun <T> createService(serviceClass: Class<T>): T {
-        return retrofit.create(serviceClass)
+        retrofit.create(ApiService::class.java)
     }
 }

@@ -1,7 +1,6 @@
 package com.example.wavepad
 
-data class SignUpRequest(
-    val username: String,
+data class LoginRequest(
     val email: String,
     val password: String
 )
