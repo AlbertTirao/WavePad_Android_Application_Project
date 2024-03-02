@@ -13,18 +13,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
-        android:text="Login"
         android:backgroundTint="@color/darkshadeofcyan"
+        android:text="Login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
     <TextView
-        android:id="@+id/Back"
-        android:layout_width="36dp"
+        android:id="@+id/SignUp"
+        android:layout_width="53dp"
         android:layout_height="21dp"
-        android:text="Back"
+        android:text="Sign Up"
         android:textColor="@color/darkshadeofcyan"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,7 +36,7 @@
 
     <EditText
         android:id="@+id/editTextEmail"
-        android:layout_width="350dp"
+        android:layout_width="320dp"
         android:layout_height="40dp"
         android:layout_marginTop="308dp"
         android:background="@drawable/button_radius"
@@ -50,7 +50,7 @@
 
     <EditText
         android:id="@+id/editTextPassword"
-        android:layout_width="350dp"
+        android:layout_width="320dp"
         android:layout_height="40dp"
         android:layout_marginTop="58dp"
         android:background="@drawable/button_radius"
@@ -69,23 +69,23 @@
         android:textSize="15dp"
         app:layout_constraintBottom_toTopOf="@+id/editTextPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintHorizontal_bias="0.113"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.986" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:layout_width="48dp"
         android:layout_height="23dp"
         android:text="Email"
-        android:textSize="15dp"
         android:textColor="@color/darkshadeofcyan"
+        android:textSize="15dp"
         app:layout_constraintBottom_toTopOf="@+id/editTextEmail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintHorizontal_bias="0.104"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.985" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -99,6 +99,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/wavepadlogo" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="8dp"
+        android:text="Forgot Password"
+        android:textColor="@color/darkshadeofcyan"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.842"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
     <TextView
         android:layout_width="67dp"

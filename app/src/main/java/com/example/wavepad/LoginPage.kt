@@ -1,9 +1,7 @@
 package com.example.wavepad
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -31,7 +29,7 @@ class LoginPage : AppCompatActivity() {
         edittextpassword = findViewById(R.id.editTextPassword)
 
         val loginButton: Button = findViewById(R.id.loginButton)
-        val textView: TextView = findViewById(R.id.Back)
+        val signUpTextView: TextView = findViewById(R.id.SignUp)
 
         loginButton.setOnClickListener {
             val email = edittextemail.text.toString().trim()
@@ -67,6 +65,12 @@ class LoginPage : AppCompatActivity() {
                 }
             }
         }
+        signUpTextView.setOnClickListener {
+            navigateToSignUp()
+        }
     }
-
+    private fun navigateToSignUp() {
+        val signUpIntent = Intent(this, SignUpPage::class.java)
+        startActivity(signUpIntent)
+    }
 }

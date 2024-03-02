@@ -1,10 +1,5 @@
 package com.example.wavepad
 
-//RetrofitClient Object:
-//This singleton object encapsulates the creation of Retrofit instances.
-//It sets up the base URL, logging interceptor, OkHttpClient, and Gson converter factory.
-//It provides a generic method createService() to create service instances for different Retrofit interfaces.
-
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

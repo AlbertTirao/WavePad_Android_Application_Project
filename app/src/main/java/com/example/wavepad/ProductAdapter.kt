@@ -1,6 +1,5 @@
 package com.example.wavepad
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,32 +14,38 @@ class ProductAdapter(
     private val onBuyButtonClick: (ProductDataClass) -> Unit
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
-    // Initialize filteredList with a copy of productList in the constructor
     private var filteredList: List<ProductDataClass> = productList.toList()
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val titleTextView: TextView = itemView.findViewById(R.id.text_product_name)
-        val priceTextView: TextView = itemView.findViewById(R.id.text_product_price)
-        val imageProduct: ImageView = itemView.findViewById(R.id.image_product)
-        val buyButton: Button = itemView.findViewById(R.id.button_buy_now)
+        private val titleTextView: TextView = itemView.findViewById(R.id.text_product_name)
+        private val authorTextView: TextView = itemView.findViewById(R.id.text_author)
+        private val priceTextView: TextView = itemView.findViewById(R.id.text_product_price)
+        private val imageProduct: ImageView = itemView.findViewById(R.id.image_product)
+        private val buyButton: Button = itemView.findViewById(R.id.button_buy_now)
 
         init {
             itemView.setOnClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     onItemClick(filteredList[position])
-                    Log.d("ProductAdapter", "Clicked on item at position: $position")
                 }
             }
             buyButton.setOnClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     onBuyButtonClick(filteredList[position])
-                    Log.d("ProductAdapter", "Clicked on buy button at position: $position")
                 }
             }
         }
+
+        fun bind(product: ProductDataClass) {
+            titleTextView.text = product.product_name
+            authorTextView.text = product.author_id
+            priceTextView.text = "$${product.product_price}"
+            imageProduct.setImageResource(product.product_image)
+        }
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.product_item, parent, false)
@@ -48,23 +53,27 @@ class ProductAdapter(
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-        val currentItem = filteredList[position]
-        holder.titleTextView.text = currentItem.title
-        holder.priceTextView.text = currentItem.price
-        holder.imageProduct.setImageResource(currentItem.imageResource)
+        holder.bind(filteredList[position])
     }
 
     override fun getItemCount() = filteredList.size
 
-    fun filter(text: String?) {
-        if (text.isNullOrEmpty()) {
-            filteredList = productList
+    fun filter(query: String?) {
+        if (query.isNullOrBlank()) {
+            filteredList = productList.toList()
         } else {
-            val searchText = text.toLowerCase().trim()
             filteredList = productList.filter { product ->
-                product.title.toLowerCase().contains(searchText)
+                product.product_name.contains(query, ignoreCase = true) ||
+                        product.author_id.contains(query, ignoreCase = true) ||
+                        product.category_id.contains(query, ignoreCase = true)
             }
         }
+        notifyDataSetChanged()
+    }
+
+    fun updateData(newList: List<ProductDataClass>) {
+        productList = newList
+        filteredList = newList
         notifyDataSetChanged()
     }
 }

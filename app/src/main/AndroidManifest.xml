@@ -69,7 +69,7 @@
 
 
         <activity
-            android:name=".RegisterAsSellerPage">
+            android:name=".MyPurchasePage">
 
         </activity>
 
