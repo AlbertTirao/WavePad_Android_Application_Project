@@ -32,7 +32,7 @@ class ProductFullDetail: AppCompatActivity() {
         product?.let {
             productNameTextView.text = it.product_name
             productDescriptionTextView.text = it.description
-            productImageView.setImageResource(it.product_image)
+//            productImageView.setImageResource(it.product_image)
         }
 
         updatePrice()

@@ -45,6 +45,7 @@ import java.io.IOException
 class ProductService(private val context: Context) {
 
     fun getProducts(callback: (List<ProductDataClass>?) -> Unit) {
+        Log.d("dddd", "wenthere")
         RetrofitClient.instance.getProducts().enqueue(object : Callback<ProductResponse> {
             override fun onResponse(
                 call: Call<ProductResponse>,
@@ -54,9 +55,11 @@ class ProductService(private val context: Context) {
                     val productResponse = response.body()
                     val products = productResponse?.products
                     callback(products)
+                    Log.d("dddd", "wentherev2")
                     showToast("GUMANA")
                 } else {
                     showToast("Error: ${response.code()}")
+                    Log.d("dddd", response.toString())
                 }
             }
 
@@ -65,6 +68,7 @@ class ProductService(private val context: Context) {
                     showToast("Network request failed")
                 } else {
                     Log.e("ProductService", "Unexpected error occurred", t)
+                    Log.d("dddd", t.toString())
                     showToast("Unexpected error occurred")
                 }
                 callback(null)

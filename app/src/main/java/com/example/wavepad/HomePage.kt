@@ -42,7 +42,7 @@ class HomePage : AppCompatActivity() {
                 val intent = Intent(this, ProductFullDetail::class.java)
                 intent.putExtra("PRODUCT", product)
                 startActivity(intent)
-                Log.d("HomePage", "Clicked Buy Now for product: ${product.product_name}")
+//                Log.d("HomePage", "Clicked Buy Now for product: ${product.product_name}")
             }
         )
 
@@ -96,7 +96,6 @@ class HomePage : AppCompatActivity() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                // Filter products based on the search query
                 productAdapter.filter(newText)
                 return true
             }

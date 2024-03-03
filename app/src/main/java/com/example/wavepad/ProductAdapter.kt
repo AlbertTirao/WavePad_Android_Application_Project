@@ -40,9 +40,9 @@ class ProductAdapter(
 
         fun bind(product: ProductDataClass) {
             titleTextView.text = product.product_name
-            authorTextView.text = product.author_id
+            //authorTextView.text = product.author_id
             priceTextView.text = "$${product.product_price}"
-            imageProduct.setImageResource(product.product_image)
+//            imageProduct.setImageResource(product.product_image)
         }
     }
 
@@ -63,9 +63,9 @@ class ProductAdapter(
             filteredList = productList.toList()
         } else {
             filteredList = productList.filter { product ->
-                product.product_name.contains(query, ignoreCase = true) ||
-                        product.author_id.contains(query, ignoreCase = true) ||
-                        product.category_id.contains(query, ignoreCase = true)
+                product.product_name.contains(query, ignoreCase = true)
+                        //product.author_id.contains(query, ignoreCase = true) ||
+                        //product.category_id.contains(query, ignoreCase = true)
             }
         }
         notifyDataSetChanged()
