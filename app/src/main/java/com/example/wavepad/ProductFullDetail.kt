@@ -68,8 +68,8 @@ class ProductFullDetail: AppCompatActivity() {
         }
 
         addToCartButton.setOnClickListener {
-            val userId = 18 // Dummy user ID for testing
-            val productId = 6 // Replace with actual product ID//5 inaro ni bert, 6 ocakes
+            val userId = AuthManager.instance.getUserId() ?: -1
+            val productId = product.id // Replace with actual product ID//5 inaro ni bert, 6 ocakes
             val size = "4.25 x 6.87 inch" // Replace with actual size
             val request = AddToCartRequest(userId, productId, size, quantity)
             CoroutineScope(Dispatchers.IO).launch {

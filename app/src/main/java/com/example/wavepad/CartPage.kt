@@ -16,7 +16,7 @@ import kotlinx.coroutines.withContext
 
 class CartPage : AppCompatActivity() {
     private val apiService: ApiService = RetrofitClient.instance
-    private val userId = 18 // Replace with the actual user ID
+    private val userId = AuthManager.instance.getUserId() ?: -1 // Get the real user ID
     private lateinit var containerLayout: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
