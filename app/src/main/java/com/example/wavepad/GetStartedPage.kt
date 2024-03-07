@@ -19,15 +19,14 @@ class GetStartedPage: AppCompatActivity() {
             val signUpIntent = Intent(this@GetStartedPage, LoginPage::class.java)
             signUpIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(signUpIntent)
-                overridePendingTransition(R.anim.slide_in_left, R.anim.scale_down) // Apply transition animation
+                overridePendingTransition(R.anim.slide_in_left, R.anim.scale_down)
 
-            // Apply animation when button is clicked
             animateButton(getStarted)
         }
     }
     override fun onBackPressed() {
         super.onBackPressed()
-        overridePendingTransition(R.anim.scale_up, 0) // Apply transition animation for going back
+        overridePendingTransition(R.anim.scale_up, 0)
     }
 
     private fun animateButton(button: Button) {
