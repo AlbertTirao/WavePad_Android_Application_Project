@@ -7,11 +7,18 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class ProductFullDetail: AppCompatActivity() {
     private var quantity: Int = 1
     private lateinit var product: ProductDataClass
+//    private val apiService = RetrofitClient.createService(ApiService::class.java)
+    val apiService = RetrofitClient.instance
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +32,8 @@ class ProductFullDetail: AppCompatActivity() {
         //val productPriceTextView: TextView = findViewById(R.id.text_product_price)
         val productDescriptionTextView: TextView = findViewById(R.id.descriptiontext)
         val productImageView: ImageView = findViewById(R.id.image_product)
+        val addToCartButton: ImageButton = findViewById(R.id.AddToCart)
+        val returnButton: ImageButton = findViewById(R.id.returnback)
 
         quantity = intent.getIntExtra("QUANTITY", 1)
 
@@ -33,6 +42,11 @@ class ProductFullDetail: AppCompatActivity() {
             productNameTextView.text = it.product_name
             productDescriptionTextView.text = it.description
 //            productImageView.setImageResource(it.product_image)
+        }
+
+        returnButton.setOnClickListener {
+            val signUpIntent = Intent(this@ProductFullDetail, HomePage::class.java)
+            startActivity(signUpIntent)
         }
 
         updatePrice()
@@ -51,6 +65,39 @@ class ProductFullDetail: AppCompatActivity() {
             quantity++
             quantityTextView.text = "$quantity"
             updatePrice()
+        }
+
+        addToCartButton.setOnClickListener {
+            val userId = 18 // Dummy user ID for testing
+            val productId = 6 // Replace with actual product ID//5 inaro ni bert, 6 ocakes
+            val size = "4.25 x 6.87 inch" // Replace with actual size
+            val request = AddToCartRequest(userId, productId, size, quantity)
+            CoroutineScope(Dispatchers.IO).launch {
+                try {
+                    val response = apiService.addToCart(request)
+                    withContext(Dispatchers.Main) {
+                        if (response.isSuccessful) {
+                            // Handle success
+                            val successMessage = "Product added to cart successfully"
+                            // Update UI or show a toast message with successMessage
+                            Toast.makeText(applicationContext, successMessage, Toast.LENGTH_SHORT).show()
+                        } else {
+                            // Handle failure
+                            val errorBody = response.errorBody()?.string()
+                            Log.e("Error", "Error add cart: $errorBody") // Log response body
+                            // Display error message to the user
+                            val errorMessage = "Failed add cart: $errorBody"
+                            Toast.makeText(applicationContext, errorMessage, Toast.LENGTH_LONG).show()
+                        }
+                    }
+                } catch (e: Exception) {
+                    // Handle exception
+                    val errorMessage = "Error add cart: ${e.message}"
+                    Log.e("Error", errorMessage)
+                    // Display error message to the user
+                    Toast.makeText(applicationContext, errorMessage, Toast.LENGTH_LONG).show()
+                }
+            }
         }
 
         buyNowButton.setOnClickListener {
