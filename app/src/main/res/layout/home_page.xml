@@ -20,25 +20,11 @@
             android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:menu="@menu/menu_main" />
 
-        <HorizontalScrollView
-            android:id="@+id/horizontalScrollView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/toolbar">
-
-            <LinearLayout
-                android:id="@+id/categoryLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" />
-
-        </HorizontalScrollView>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/horizontalScrollView"
+            android:layout_below="@id/toolbar"
             android:layout_above="@id/bottomNavigationView"
             android:padding="8dp"/>
 

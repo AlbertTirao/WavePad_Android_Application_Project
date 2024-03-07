@@ -2,7 +2,6 @@ package com.example.wavepad
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
@@ -36,7 +35,7 @@ class SplashScreen : AppCompatActivity() {
     }
 
     private fun navigateToNextActivity() {
-        val intent = Intent(this@SplashScreen, SignUpLogInPage::class.java)
+        val intent = Intent(this@SplashScreen, GetStartedPage::class.java)
         startActivity(intent)
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         finish()

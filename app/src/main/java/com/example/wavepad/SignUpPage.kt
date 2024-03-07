@@ -20,7 +20,6 @@ class SignUpPage : AppCompatActivity() {
     private lateinit var gender: EditText
     private lateinit var age: EditText
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.signup_page)
@@ -87,7 +86,9 @@ class SignUpPage : AppCompatActivity() {
                         if (response.isSuccessful) {
                             Toast.makeText(this@SignUpPage, response.body()?.message, Toast.LENGTH_LONG).show()
                             val signUpIntent = Intent(this@SignUpPage, HomePage::class.java)
+                            signUpIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                             startActivity(signUpIntent)
+                            overridePendingTransition(R.anim.slide_in_left, R.anim.scale_down)
                         } else {
                             val errorMessage = response.errorBody()?.string() ?: "Unknown error"
                             Toast.makeText(this@SignUpPage, errorMessage, Toast.LENGTH_LONG).show()
@@ -101,9 +102,10 @@ class SignUpPage : AppCompatActivity() {
         }
 
         textView.setOnClickListener {
-            val signUpIntent = Intent(this@SignUpPage, LoginPage::class.java)
-            startActivity(signUpIntent)
+            val loginIntent = Intent(this@SignUpPage, LoginPage::class.java)
+            loginIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(loginIntent)
+            overridePendingTransition(R.anim.slide_in_left, R.anim.scale_down)
         }
     }
-
 }

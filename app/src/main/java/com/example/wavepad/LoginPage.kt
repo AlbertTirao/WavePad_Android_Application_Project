@@ -51,7 +51,7 @@ class LoginPage : AppCompatActivity() {
                                 }
                                 val signUpIntent = Intent(this@LoginPage, HomePage::class.java)
                                 startActivity(signUpIntent)
-
+                                overridePendingTransition(R.anim.slide_in_left, R.anim.scale_down) // Apply transition animation
                             } else {
                                 Toast.makeText(this@LoginPage, "Invalid Credentials", Toast.LENGTH_LONG).show()
                             }
@@ -69,8 +69,11 @@ class LoginPage : AppCompatActivity() {
             navigateToSignUp()
         }
     }
+
     private fun navigateToSignUp() {
         val signUpIntent = Intent(this, SignUpPage::class.java)
+        signUpIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(signUpIntent)
+        overridePendingTransition(R.anim.slide_in_left, R.anim.scale_down)
     }
 }

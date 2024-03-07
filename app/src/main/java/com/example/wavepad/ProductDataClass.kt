@@ -3,7 +3,7 @@ package com.example.wavepad
 import java.io.Serializable
 
 data class ProductDataClass(
-//    val id: Int = 0,
+    val id: Int = 0,
 //    val section_id: Int = 0,
     val category_id: String = "",
     val author_id: String = "",
@@ -19,5 +19,13 @@ data class ProductDataClass(
     val product_image:  String = "",
 //    val product_video: Int = 0,
     val description: String = "",
-)
-    :Serializable
+    val author: AuthorDataClass? = null
+) :Serializable
+
+data class AuthorDataClass(
+    val id: Int = 0,
+    val name: String = "",
+    val status: Int = 0,
+    val created_at: String? = null,
+    val updated_at: String? = null
+) : Serializable

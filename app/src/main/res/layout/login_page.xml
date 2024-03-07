@@ -10,11 +10,16 @@
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
         android:backgroundTint="@color/darkshadeofcyan"
+        android:layout_marginStart="38dp"
+        android:layout_marginEnd="38dp"
+        android:gravity="center"
         android:text="Login"
+        android:textStyle="italic"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,28 +69,26 @@
     <TextView
         android:layout_width="75dp"
         android:layout_height="23dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginLeft="34dp"
+        android:gravity="center"
         android:text="Password"
         android:textColor="@color/darkshadeofcyan"
         android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.113"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:layout_width="48dp"
+        android:layout_width="40dp"
         android:layout_height="23dp"
+        android:layout_marginTop="282dp"
+        android:layout_marginLeft="34dp"
+        android:gravity="center"
         android:text="Email"
         android:textColor="@color/darkshadeofcyan"
         android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextEmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.104"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -101,15 +104,16 @@
         app:srcCompat="@drawable/wavepadlogo" />
 
     <TextView
-        android:layout_width="120dp"
+        android:id="@+id/forgotpassword"
+        android:layout_width="115dp"
         android:layout_height="23dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="36dp"
+        android:gravity="center"
         android:text="Forgot Password"
         android:textColor="@color/darkshadeofcyan"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.842"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
     <TextView
@@ -117,6 +121,7 @@
         android:layout_height="34dp"
         android:text="LogIn"
         android:textColor="@color/darkshadeofcyan"
+        android:textStyle="italic"
         android:textSize="25dp"
         app:layout_constraintBottom_toTopOf="@+id/editTextEmail"
         app:layout_constraintEnd_toEndOf="parent"

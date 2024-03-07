@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
@@ -20,6 +21,8 @@ class HomePage : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var bottomNav: BottomNavigationView
     private lateinit var searchView: SearchView
+
+    private var backPressedTime: Long = 0
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var productList: MutableList<ProductDataClass>
@@ -37,12 +40,6 @@ class HomePage : AppCompatActivity() {
                 val intent = Intent(this, ProductFullDetail::class.java)
                 intent.putExtra("PRODUCT", product)
                 startActivity(intent)
-            },
-            onBuyButtonClick = { product ->
-                val intent = Intent(this, ProductFullDetail::class.java)
-                intent.putExtra("PRODUCT", product)
-                startActivity(intent)
-//                Log.d("HomePage", "Clicked Buy Now for product: ${product.product_name}")
             }
         )
 
@@ -103,6 +100,21 @@ class HomePage : AppCompatActivity() {
 
         return true
     }
+    override fun onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            // Check if it's a double tap
+            if (backPressedTime + 2000 > System.currentTimeMillis()) {
+                super.onBackPressed()
+                finishAffinity() // Exit the app
+            } else {
+                // Notify the user to press back again to exit
+                Toast.makeText(this, "Double to exit", Toast.LENGTH_SHORT).show()
+                backPressedTime = System.currentTimeMillis()
+            }
+        }
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
@@ -111,7 +123,7 @@ class HomePage : AppCompatActivity() {
                 true
             }
             R.id.menu -> {
-                drawerLayout.openDrawer(GravityCompat.START)
+                drawerLayout.openDrawer(GravityCompat.END)
                 true
             }
             else -> super.onOptionsItemSelected(item)

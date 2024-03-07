@@ -2,6 +2,9 @@
     <string name="app_name">WavePad</string>
     <string name="nav_open">Open Drawer</string>
     <string name="nav_close">Close Drawer</string>
+    <string name="select_category" />
+    <string name="filter" />
+    <string name="select_price_range" />
 
     <!-- BirthYear dropbox -->
 
@@ -46,6 +49,13 @@
         <item>2011</item>
 
         <!-- Add more years as needed -->
+    </string-array>
+
+    <string-array name="price_ranges">
+        <item>Under $10</item>
+        <item>$10 - $20</item>
+        <item>$20 - $30</item>
+        <item>Over $30</item>
     </string-array>
 
 

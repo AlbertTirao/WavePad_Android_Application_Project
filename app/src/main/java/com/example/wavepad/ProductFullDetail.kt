@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 class ProductFullDetail: AppCompatActivity() {
     private var quantity: Int = 1
     private lateinit var product: ProductDataClass
+    private var isBuyNowClicked = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,15 +55,20 @@ class ProductFullDetail: AppCompatActivity() {
         }
 
         buyNowButton.setOnClickListener {
-            val checkoutIntent = Intent(this@ProductFullDetail, CheckOutPage::class.java).apply {
-                putExtra("PRODUCT", product)
-                putExtra("QUANTITY", quantity)
-            }
-            startActivity(checkoutIntent)
+            if (!isBuyNowClicked) {
+                val checkoutIntent = Intent(this@ProductFullDetail, CheckOutPage::class.java).apply {
+                    putExtra("PRODUCT", product)
+                    putExtra("QUANTITY", quantity)
+                }
+                startActivity(checkoutIntent)
 
-            Log.d("ProductFullDetail", "Navigating to CheckoutPage")
+                Log.d("ProductFullDetail", "Navigating to CheckoutPage")
+
+                isBuyNowClicked = true
+            }
         }
     }
+
 
     private fun updatePrice() {
         val totalPrice = product?.product_price?.toDouble() ?: 0.0 * quantity
