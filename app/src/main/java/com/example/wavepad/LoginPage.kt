@@ -7,7 +7,6 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.gymrat.Models.AuthManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -43,7 +42,7 @@ class LoginPage : AppCompatActivity() {
                                 val token = response.body()?.token
                                 val userId = response.body()?.data?.id
                                 if (userId != null) {
-                                    AuthManager.instance.setUserid(userId.toInt())
+                                    AuthManager.instance.setUserId(userId.toInt())
                                 }
                                 Toast.makeText(this@LoginPage, response.body()?.message, Toast.LENGTH_LONG).show()
                                 if (token != null) {
