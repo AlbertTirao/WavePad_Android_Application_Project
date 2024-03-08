@@ -15,16 +15,16 @@
         <TextView
             android:layout_width="48dp"
             android:layout_height="23dp"
+            android:layout_marginLeft="20dp"
             android:gravity="center"
             android:text="Email:"
             android:textColor="@color/darkshadeofcyan"
             android:textSize="15dp"
             app:layout_constraintBottom_toTopOf="@+id/editTextEmail"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.104"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.951" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <EditText
             android:id="@+id/editTextEmail"
@@ -40,53 +40,53 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <TextView
             android:layout_width="50dp"
             android:layout_height="23dp"
+            android:layout_marginLeft="20dp"
             android:gravity="center"
             android:text="Name:"
             android:textColor="@color/darkshadeofcyan"
             android:textSize="15dp"
             app:layout_constraintBottom_toTopOf="@+id/editTextName"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.104"
+            app:layout_constraintHorizontal_bias="0.099"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.979" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <EditText
             android:id="@+id/editTextName"
             android:layout_width="320dp"
             android:layout_height="40dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="35dp"
             android:background="@drawable/button_radius"
             android:inputType="text"
             android:paddingLeft="13dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.488"
+            app:layout_constraintHorizontal_bias="0.493"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
-
 
         <TextView
             android:layout_width="55dp"
             android:layout_height="23dp"
+            android:layout_marginLeft="20dp"
             android:gravity="center"
             android:text="Mobile:"
             android:textColor="@color/darkshadeofcyan"
             android:textSize="15dp"
             app:layout_constraintBottom_toTopOf="@+id/editTextMobilePhone"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.112"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.981" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <EditText
             android:id="@+id/editTextMobilePhone"
             android:layout_width="320dp"
             android:layout_height="40dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="35dp"
             android:background="@drawable/button_radius"
             android:inputType="number"
             android:paddingLeft="13dp"
@@ -98,22 +98,22 @@
         <TextView
             android:layout_width="70dp"
             android:layout_height="23dp"
+            android:layout_marginLeft="20dp"
             android:gravity="center"
             android:text="Password:"
             android:textColor="@color/darkshadeofcyan"
             android:textSize="15dp"
             app:layout_constraintBottom_toTopOf="@+id/editTextPassword"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.111"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.984" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="320dp"
             android:layout_height="40dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="35dp"
             android:background="@drawable/button_radius"
             android:inputType="textPassword"
             android:paddingLeft="13dp"
@@ -122,42 +122,40 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextMobilePhone" />
 
-
         <TextView
             android:layout_width="55dp"
             android:layout_height="23dp"
+            android:layout_marginLeft="20dp"
             android:gravity="center"
             android:text="Gender:"
             android:textColor="@color/darkshadeofcyan"
             android:textSize="15dp"
             app:layout_constraintBottom_toTopOf="@+id/editTextGender"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.106"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.984" />
-
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/textView5"
-            android:layout_width="50dp"
+            android:layout_width="30dp"
             android:layout_height="23dp"
+            android:layout_marginLeft="20dp"
             android:gravity="center"
             android:text="Age:"
             android:textColor="@color/darkshadeofcyan"
             android:textSize="15dp"
             app:layout_constraintBottom_toTopOf="@+id/editTextAge"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.104"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.986" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <EditText
             android:id="@+id/editTextGender"
             android:layout_width="320dp"
             android:layout_height="40dp"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="184dp"
             android:background="@drawable/button_radius"
             android:inputType="text"
             android:paddingLeft="13dp"
@@ -170,7 +168,7 @@
             android:id="@+id/editTextAge"
             android:layout_width="320dp"
             android:layout_height="40dp"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="108dp"
             android:background="@drawable/button_radius"
             android:inputType="number"
             android:paddingLeft="13dp"

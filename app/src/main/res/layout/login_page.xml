@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".LoginPage">
 
-
     <Button
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
@@ -70,7 +69,7 @@
         android:layout_width="75dp"
         android:layout_height="23dp"
         android:layout_marginTop="380dp"
-        android:layout_marginLeft="34dp"
+        android:layout_marginLeft="20dp"
         android:gravity="center"
         android:text="Password"
         android:textColor="@color/darkshadeofcyan"
@@ -82,7 +81,7 @@
         android:layout_width="40dp"
         android:layout_height="23dp"
         android:layout_marginTop="282dp"
-        android:layout_marginLeft="34dp"
+        android:layout_marginLeft="20dp"
         android:gravity="center"
         android:text="Email"
         android:textColor="@color/darkshadeofcyan"
@@ -108,7 +107,7 @@
         android:layout_width="115dp"
         android:layout_height="23dp"
         android:layout_marginTop="4dp"
-        android:layout_marginRight="36dp"
+        android:layout_marginRight="20dp"
         android:gravity="center"
         android:text="Forgot Password"
         android:textColor="@color/darkshadeofcyan"
