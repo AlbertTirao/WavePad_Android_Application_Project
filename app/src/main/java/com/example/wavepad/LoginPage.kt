@@ -2,6 +2,7 @@ package com.example.wavepad
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -40,7 +41,12 @@ class LoginPage : AppCompatActivity() {
                         override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                             if (response.isSuccessful) {
                                 val token = response.body()?.token
-                                val userId = response.body()?.data?.id
+                                val userId = response.body()?.user?.id
+                                if (userId != null) {
+                                    Log.d("MyApp", "User ID: $userId")
+                                } else {
+                                    Log.d("MyApp", "User ID is null or empty")
+                                }
                                 if (userId != null) {
                                     AuthManager.instance.setUserId(userId.toInt())
                                 }

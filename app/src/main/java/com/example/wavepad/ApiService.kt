@@ -41,7 +41,7 @@ interface ApiService {
 
     // Add a new GET request to fetch cart items by user ID
     @GET("/api/user/{userId}/carts")
-    suspend fun getCartItemsByUserId(@Path("userId") userId: Int): Response<CartItemResponse>
+    suspend fun getCartItemsByUserId(@Path("userId") userId: Int): Response<GetCartItemsResponse>
 
     // Add a new DELETE request to delete a cart item
 //    @DELETE("/api/user/deleteCart")
@@ -50,8 +50,7 @@ interface ApiService {
     @HTTP(method = "DELETE", path = "/api/user/cart/delete", hasBody = true)
     suspend fun deleteCartItem(
         @Query("user_id") userId: Int,
-        @Query("product_id") productId: Int,
-        @Query("size") size: String
+        @Query("product_name") productName: String
     ): Response<ResponseBody>
 
 }

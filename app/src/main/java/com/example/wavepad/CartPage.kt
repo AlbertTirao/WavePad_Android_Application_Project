@@ -40,9 +40,10 @@ class CartPage : AppCompatActivity() {
                 val response = apiService.getCartItemsByUserId(userId)
                 withContext(Dispatchers.Main) {
                     if (response.isSuccessful) {
-                        val carts = response.body()?.carts
-                        Log.d("CartPage", "Cart items: $carts") // Log response body
-                        carts?.let {
+                        val cartsResponse = response.body()
+                        val cartItems = cartsResponse?.carts
+                        Log.d("CartPage", "Cart items: $cartItems") // Log response body
+                        cartItems?.let {
                             displayCartItems(it)
                         } ?: run {
                             // Handle case when cart is empty
@@ -66,7 +67,7 @@ class CartPage : AppCompatActivity() {
         }
     }
 
-    private fun displayCartItems(cartItems: List<CartItem>) {
+    private fun displayCartItems(cartItems: List<CartItemResponse>) {
         // Clear any existing views in the container layout
         containerLayout.removeAllViews()
 
@@ -76,24 +77,22 @@ class CartPage : AppCompatActivity() {
 
             // Find views in the inflated layout
             val productTitle: TextView = itemView.findViewById(R.id.product_title)
-            val productAuthor: TextView = itemView.findViewById(R.id.product_author)
-            val productCategories: TextView = itemView.findViewById(R.id.product_categories)
             val productPrice: TextView = itemView.findViewById(R.id.product_price)
+            val productSize: TextView = itemView.findViewById(R.id.product_categories)
             val productQuantity: TextView = itemView.findViewById(R.id.product_quantity)
             val productTotalPrice: TextView = itemView.findViewById(R.id.product_total_price)
             val deleteButton: Button = itemView.findViewById(R.id.delete_button)
 
             // Set data to the views
-            productTitle.text = "Product Name: ${cartItem.productId}"
-            productAuthor.text = "User ID: ${cartItem.userId}"
-            productCategories.text = "Size: ${cartItem.size}"
-            productPrice.text = "Quantity: ${cartItem.quantity}"
-            productQuantity.text = "Created At: ${cartItem.createdAt}"
-            productTotalPrice.text = "Updated At: ${cartItem.updatedAt}"
+            productTitle.text = cartItem.product_name
+            productPrice.text = "Price: $${cartItem.product_price}"
+            productSize.text = "Size: ${cartItem.size}"
+            productQuantity.text = "Quantity: ${cartItem.quantity}"
+            productTotalPrice.text = "Total: $${cartItem.total}"
 
             // Set click listener for delete button
             deleteButton.setOnClickListener {
-                deleteCartItem(cartItem.productId, cartItem.size)
+                deleteCartItem(cartItem.product_name)
             }
 
             // Add the inflated layout to the container layout
@@ -101,10 +100,10 @@ class CartPage : AppCompatActivity() {
         }
     }
 
-    private fun deleteCartItem(productId: Int, size: String) {
+    private fun deleteCartItem(productName: String) {
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val response = apiService.deleteCartItem(userId, productId, size) // Modify the function call
+                val response = apiService.deleteCartItem(userId, productName) // Modify the function call
                 withContext(Dispatchers.Main) {
                     if (response.isSuccessful) {
                         // Handle success
@@ -130,39 +129,6 @@ class CartPage : AppCompatActivity() {
     }
 
 
-    //    private fun deleteCartItem(productId: Int, size: String) {
-//        //val request = DeleteCartItemRequest(userId, productId, size)
-//        val response = apiService.deleteCartItem(userId, productId, size) // Modify the function call
-//        withContext(Dispatchers.Main) {
-//        CoroutineScope(Dispatchers.IO).launch {
-//            try {
-//                val response = apiService.deleteCartItem(request)
-//                withContext(Dispatchers.Main) {
-//                    if (response.isSuccessful) {
-//                        // Handle success
-//                        val successMessage = "Product removed from cart successfully"
-//                        //Toast.makeText(applicationContext, successMessage, Toast.LENGTH_SHORT).show()
-//                        showToast(successMessage)
-//                        Log.d("CartPage", successMessage)
-//                        // Refresh cart items after deletion
-//                        fetchCartItems()
-//                    } else {
-//                        // Handle failure
-//                        val errorMessage = "Failed to remove product from cart: ${response.message()}"
-//                        //Toast.makeText(applicationContext, errorMessage, Toast.LENGTH_LONG).show()
-//                        showToast(errorMessage)
-//                        Log.e("CartPage", errorMessage)
-//                    }
-//                }
-//            } catch (e: Exception) {
-//                // Handle exception
-//                val errorMessage = "Error deleting cart item: ${e.message}"
-//                //Toast.makeText(applicationContext, errorMessage, Toast.LENGTH_LONG).show()
-//                showToast(errorMessage)
-//                Log.e("CartPage", errorMessage)
-//            }
-//        }
-//    }
     private fun showToast(message: String) {
         runOnUiThread {
             Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
