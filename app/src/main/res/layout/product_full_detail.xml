@@ -40,78 +40,75 @@
 
             <ImageView
                 android:id="@+id/image_product"
-                android:layout_width="100dp"
-                android:layout_height="150dp"
-                android:layout_marginStart="16dp"
+                android:layout_width="200dp"
+                android:layout_height="250dp"
+                android:layout_marginStart="80dp"
                 android:layout_marginTop="16dp"
                 android:scaleType="centerCrop"
+                android:layout_centerHorizontal="true"
                 android:src="@drawable/wavepadlogo" />
 
-            <LinearLayout
-                android:id="@+id/inner_linear_layout"
-                android:layout_width="250dp"
-                android:layout_height="150dp"
-                android:orientation="vertical"
-                android:layout_marginStart="16dp"
+            <TextView
+                android:id="@+id/text_product_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/image_product"
+                android:layout_marginStart="28dp"
                 android:layout_marginTop="16dp"
-                android:layout_toEndOf="@id/image_product">
+                android:layout_centerHorizontal="true"
+                android:text="Product Name"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/text_product_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Product Name"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+            <TextView
+                android:id="@+id/text_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_product_name"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Author:"
+                android:textSize="13sp" />
 
-                <TextView
-                    android:id="@+id/text_author"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Author"
-                    android:layout_marginTop="10dp"
-                    android:textSize="13sp" />
+            <TextView
+                android:id="@+id/category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_author"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Categories:"
+                android:textSize="13sp" />
 
-                <TextView
-                    android:id="@+id/text_genre"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Categories"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:id="@+id/text_product_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Price"
-                    android:textSize="13sp"
-                    android:layout_marginTop="10dp"/>
-
-            </LinearLayout>
+            <TextView
+                android:id="@+id/text_product_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/category"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Price:"
+                android:textSize="13sp" />
 
             <TextView
                 android:id="@+id/description"
-                android:layout_width="125dp"
-                android:layout_height="40dp"
-                android:layout_below="@+id/image_product"
-                android:layout_centerHorizontal="false"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="273dp"
-                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_product_price"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="19dp"
                 android:text="Description"
                 android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/descriptiontext"
-                android:layout_width="match_parent"
+                android:layout_width="360dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/description"
-                android:layout_centerHorizontal="false"
+                android:layout_marginStart="16dp"
+                android:padding="16dp"
                 android:text="Sample"
-                android:textSize="16sp"
-                android:padding="16dp"/>
-
+                android:textSize="16sp" />
 
         </RelativeLayout>
 
@@ -133,7 +130,7 @@
             android:layout_width="120dp"
             android:layout_height="43dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="15dp"
             android:layout_marginBottom="12dp"
             android:background="@drawable/stroke">
 
@@ -177,7 +174,7 @@
             android:layout_height="36dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginEnd="132dp"
+            android:layout_marginEnd="125dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/round_shape"
             android:backgroundTint="@color/darkshadeofcyan"
@@ -191,7 +188,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_gravity="end"
-            android:layout_marginEnd="31dp"
+            android:layout_marginEnd="15dp"
             android:layout_marginBottom="12dp"
             android:backgroundTint="@color/darkshadeofcyan"
             android:text="Buy Now"

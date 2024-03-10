@@ -58,10 +58,10 @@ class HomePage : AppCompatActivity() {
         bottomNav.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.home -> true
-                R.id.chat -> {
-                    startNewActivity(ChatPage::class.java)
-                    true
-                }
+//                R.id.chat -> {
+//                    startNewActivity(ChatPage::class.java)
+//                    true
+//                }
                 R.id.account -> {
                     startNewActivity(AccountPage::class.java)
                     true
@@ -104,12 +104,10 @@ class HomePage : AppCompatActivity() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
         } else {
-            // Check if it's a double tap
             if (backPressedTime + 2000 > System.currentTimeMillis()) {
                 super.onBackPressed()
                 finishAffinity() // Exit the app
             } else {
-                // Notify the user to press back again to exit
                 Toast.makeText(this, "Double to exit", Toast.LENGTH_SHORT).show()
                 backPressedTime = System.currentTimeMillis()
             }

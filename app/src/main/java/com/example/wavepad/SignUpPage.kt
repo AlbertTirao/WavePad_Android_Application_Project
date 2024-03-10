@@ -47,6 +47,11 @@ class SignUpPage : AppCompatActivity() {
                 name.requestFocus()
                 return@setOnClickListener
             }
+            if(inputName.length !in 8..99){
+                name.error = "Nickname Must Be 8 Character Long"
+                name.requestFocus()
+                return@setOnClickListener
+            }
             if(inputEmail.isEmpty()){
                 email.error = "Email Required"
                 email.requestFocus()

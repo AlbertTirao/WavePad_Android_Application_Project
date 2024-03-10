@@ -7,8 +7,8 @@
         android:id="@+id/home"/>
 
     <item
-        android:title="Chat"
-        android:icon="@drawable/chat_logo"
+        android:title="Best Sellings"
+        android:icon="@drawable/baseline_sell_24"
         android:id="@+id/chat"/>
     <item
         android:title="Me"

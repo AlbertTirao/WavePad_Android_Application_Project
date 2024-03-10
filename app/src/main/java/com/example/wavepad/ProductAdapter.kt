@@ -1,7 +1,5 @@
 package com.example.wavepad
 
-import android.os.Handler
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,9 +32,9 @@ class ProductAdapter(
 
         private fun loadAuthorName(author: AuthorDataClass?, callback: (String) -> Unit) {
             if (author != null) {
-                callback(author.name)
+                callback("Author: ${author.name}")
             } else {
-                callback("Unknown Author")
+                callback("Author: Unknown Author")
             }
         }
 
@@ -50,7 +48,7 @@ class ProductAdapter(
             val imageUrl = "https://wavepad-ecom-529a3cf49f8f.herokuapp.com/front/images/product_images/large/${product.product_image}"
             Glide.with(itemView.context)
                 .load(imageUrl)
-                .error(R.drawable.baseline_error_24) // Error image resource
+                .error(R.drawable.baseline_error_24)
                 .into(imageProduct)
         }
     }

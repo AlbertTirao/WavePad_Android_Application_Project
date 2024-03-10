@@ -7,7 +7,6 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.gymrat.Models.AuthManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -35,6 +34,22 @@ class LoginPage : AppCompatActivity() {
             val email = edittextemail.text.toString().trim()
             val password = edittextpassword.text.toString().trim()
 
+            if(email.isEmpty()){
+                edittextemail.error = "Email Required"
+                edittextemail.requestFocus()
+                return@setOnClickListener
+            }
+            if(password.isEmpty()){
+                edittextpassword.error = "Password Required"
+                edittextpassword.requestFocus()
+                return@setOnClickListener
+            }
+            if(password.length !in 8..99){
+                edittextpassword.error = "Password Must Be 8 Character Long"
+                edittextpassword.requestFocus()
+                return@setOnClickListener
+            }
+
             GlobalScope.launch(Dispatchers.Main) {
                 val response = withContext(Dispatchers.IO) {
                     RetrofitClient.instance.loginUser(email, password).enqueue(object : Callback<LoginResponse> {
@@ -43,7 +58,7 @@ class LoginPage : AppCompatActivity() {
                                 val token = response.body()?.token
                                 val userId = response.body()?.data?.id
                                 if (userId != null) {
-                                    AuthManager.instance.setUserid(userId.toInt())
+                                    AuthManager.instance.setUserId(userId.toInt())
                                 }
                                 Toast.makeText(this@LoginPage, response.body()?.message, Toast.LENGTH_LONG).show()
                                 if (token != null) {
@@ -51,9 +66,9 @@ class LoginPage : AppCompatActivity() {
                                 }
                                 val signUpIntent = Intent(this@LoginPage, HomePage::class.java)
                                 startActivity(signUpIntent)
-                                overridePendingTransition(R.anim.slide_in_left, R.anim.scale_down) // Apply transition animation
+                                overridePendingTransition(R.anim.slide_in_left, R.anim.scale_down)
                             } else {
-                                Toast.makeText(this@LoginPage, "Invalid Credentials", Toast.LENGTH_LONG).show()
+                                Toast.makeText(this@LoginPage, "Incorrect Password", Toast.LENGTH_LONG).show()
                             }
                         }
 
