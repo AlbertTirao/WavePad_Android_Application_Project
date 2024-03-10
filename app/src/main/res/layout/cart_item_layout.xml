@@ -30,7 +30,11 @@
         android:id="@+id/product_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:text="Price: ₱100"
+=======
+        android:text="Price: $100"
+>>>>>>> 1185be72f62e4bd7a4c96f3addc0a62c25eacd78
         android:textSize="14sp" />
 
     <TextView
