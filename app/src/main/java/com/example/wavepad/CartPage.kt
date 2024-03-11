@@ -67,32 +67,32 @@ class CartPage : AppCompatActivity() {
         }
     }
 
-    private fun displayCartItems(cartItems: List<CartItemResponse>) {
+    private fun displayCartItems(GetCartItemsResponse: List<CartItemResponse>) {
         // Clear any existing views in the container layout
         containerLayout.removeAllViews()
 
         // Iterate through each cart item and create a view for each one
-        for (cartItem in cartItems) {
+        for (CartItemResponse in GetCartItemsResponse) {
             val itemView = layoutInflater.inflate(R.layout.cart_item_layout, containerLayout, false)
 
             // Find views in the inflated layout
-            val productTitle: TextView = itemView.findViewById(R.id.product_title)
+            val productTitle: TextView = itemView.findViewById(R.id.product_name)
             val productPrice: TextView = itemView.findViewById(R.id.product_price)
-            val productSize: TextView = itemView.findViewById(R.id.product_categories)
+            val productSize: TextView = itemView.findViewById(R.id.product_size)
             val productQuantity: TextView = itemView.findViewById(R.id.product_quantity)
             val productTotalPrice: TextView = itemView.findViewById(R.id.product_total_price)
             val deleteButton: Button = itemView.findViewById(R.id.delete_button)
 
             // Set data to the views
-            productTitle.text = cartItem.product_name
-            productPrice.text = "Price: $${cartItem.product_price}"
-            productSize.text = "Size: ${cartItem.size}"
-            productQuantity.text = "Quantity: ${cartItem.quantity}"
-            productTotalPrice.text = "Total: $${cartItem.total}"
+            productTitle.text = CartItemResponse.product_name
+            productPrice.text = "Price: $${CartItemResponse.product_price}"
+            productSize.text = "Size: ${CartItemResponse.size}"
+            productQuantity.text = "Quantity: ${CartItemResponse.quantity}"
+            productTotalPrice.text = "Total: $${CartItemResponse.total}"
 
             // Set click listener for delete button
             deleteButton.setOnClickListener {
-                deleteCartItem(cartItem.product_name)
+                deleteCartItem(CartItemResponse.product_name)
             }
 
             // Add the inflated layout to the container layout

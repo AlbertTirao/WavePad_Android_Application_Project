@@ -6,45 +6,38 @@
     android:padding="8dp">
 
     <TextView
-        android:id="@+id/product_title"
+        android:id="@+id/product_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Product Title"
+        android:text="Title"
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/product_author"
+        android:id="@+id/product_size"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Author: Author Name"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/product_categories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Categories: Category Name"
-        android:textSize="14sp" />
-
-    <TextView
-        android:id="@+id/product_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Price: ₱100"
+        android:text="Size:"
         android:textSize="14sp" />
 
     <TextView
         android:id="@+id/product_quantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quantity: 1"
+        android:text="Quantity:"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/product_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price:"
         android:textSize="14sp" />
 
     <TextView
         android:id="@+id/product_total_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total Price: $100"
+        android:text="Total Price:"
         android:textSize="14sp" />
 
     <Button
