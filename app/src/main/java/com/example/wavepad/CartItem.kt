@@ -10,3 +10,4 @@ data class CartItem(
     @SerializedName("created_at") val createdAt: String,
     @SerializedName("updated_at") val updatedAt: String
 )
+
