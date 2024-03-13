@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".GetStartedPage">
 
-
     <Button
         android:id="@+id/GettedStart"
         android:layout_width="170dp"
@@ -39,7 +38,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="50dp"
@@ -51,17 +49,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/wavepadlogo" />
 
-    <TextView
-        android:layout_width="300dp"
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="Lets experience the online digital books and selling in the world of readings"
-        android:textSize="15dp"
-        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ads" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,8 +14,6 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
-
-
 class HomePage : AppCompatActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
@@ -58,10 +56,7 @@ class HomePage : AppCompatActivity() {
         bottomNav.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.home -> true
-//                R.id.chat -> {
-//                    startNewActivity(ChatPage::class.java)
-//                    true
-//                }
+
                 R.id.account -> {
                     startNewActivity(AccountPage::class.java)
                     true
@@ -118,10 +113,6 @@ class HomePage : AppCompatActivity() {
         return when (item.itemId) {
             R.id.action_cart -> {
                 startNewActivity(CartPage::class.java)
-                true
-            }
-            R.id.menu -> {
-                drawerLayout.openDrawer(GravityCompat.END)
                 true
             }
             else -> super.onOptionsItemSelected(item)

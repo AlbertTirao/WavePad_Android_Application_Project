@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sizes_array">
+        <item>4.25 x 6.87 inch</item>
+        <item>5 x 7 inch</item>
+        <item>8 x 10 inch</item>
+        <!-- Add more sizes here as needed -->
+    </string-array>
+</resources>

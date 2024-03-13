@@ -19,7 +19,8 @@ data class ProductDataClass(
     val product_image:  String = "",
     val product_video: Int = 0,
     val description: String = "",
-    val author: AuthorDataClass? = null
+    val author: AuthorDataClass? = null,
+    val attributes: List<Attribute> = listOf()
 ) :Serializable
 
 data class AuthorDataClass(
@@ -28,4 +29,16 @@ data class AuthorDataClass(
     val status: Int = 0,
     val created_at: String? = null,
     val updated_at: String? = null
+) : Serializable
+
+data class Attribute(
+    val id: Int = 0,
+    val product_id: Int = 0,
+    val size: String = "",
+    val price: String = "",
+    val stock: Int = 0,
+    val sku: String = "",
+    val status: Int = 0,
+    val created_at: String = "",
+    val updated_at: String = ""
 ) : Serializable

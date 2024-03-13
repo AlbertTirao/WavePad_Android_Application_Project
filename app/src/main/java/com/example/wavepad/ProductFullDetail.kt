@@ -3,11 +3,8 @@ package com.example.wavepad
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.CoroutineScope
@@ -15,7 +12,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class ProductFullDetail: AppCompatActivity() {
+class ProductFullDetail : AppCompatActivity() {
+
     private var quantity: Int = 1
     private lateinit var product: ProductDataClass
     private var isBuyNowClicked = false
@@ -25,7 +23,7 @@ class ProductFullDetail: AppCompatActivity() {
         setContentView(R.layout.product_full_detail)
         val apiService = RetrofitClient.instance
 
-        val returnBackButton:ImageButton = findViewById(R.id.returnback)
+        val returnBackButton: ImageButton = findViewById(R.id.returnback)
         val addToCartButton: ImageButton = findViewById(R.id.AddToCart)
         val buyNowButton: Button = findViewById(R.id.BuyNow)
         val quantityTextView: TextView = findViewById(R.id.text_quantity)
@@ -35,6 +33,7 @@ class ProductFullDetail: AppCompatActivity() {
         val productDescriptionTextView: TextView = findViewById(R.id.descriptiontext)
         val productCategoryTextView: TextView = findViewById(R.id.category)
         val productImageView: ImageView = findViewById(R.id.image_product)
+        val spinnerSizes: Spinner = findViewById(R.id.spinner_sizes)
 
         quantity = intent.getIntExtra("QUANTITY", 1)
 
@@ -50,7 +49,8 @@ class ProductFullDetail: AppCompatActivity() {
                 authorTextView.text = "Author: ${author.name}"
             }
 
-            val imageUrl = "https://wavepad-ecom-529a3cf49f8f.herokuapp.com/front/images/product_images/large/${it.product_image}"
+            val imageUrl =
+                "https://wavepad-ecom-529a3cf49f8f.herokuapp.com/front/images/product_images/large/${it.product_image}"
             Glide.with(this)
                 .load(imageUrl)
                 .error(R.drawable.baseline_error_24)
@@ -58,6 +58,7 @@ class ProductFullDetail: AppCompatActivity() {
         }
 
         quantityTextView.text = "$quantity"
+
 
         returnBackButton.setOnClickListener {
             val signUpIntent = Intent(this@ProductFullDetail, HomePage::class.java)
@@ -81,7 +82,7 @@ class ProductFullDetail: AppCompatActivity() {
         addToCartButton.setOnClickListener {
             val userId = AuthManager.instance.getUserId() ?: -1
             val productId = product.id // Replace with actual product ID//5 inaro ni bert, 6 ocakes
-            val size = "4.25 x 6.87 inch" // Replace with actual size
+            val size = spinnerSizes.selectedItem.toString() // Get selected size from spinner
             val request = AddToCartRequest(userId, productId, size, quantity)
             CoroutineScope(Dispatchers.IO).launch {
                 try {
@@ -95,7 +96,7 @@ class ProductFullDetail: AppCompatActivity() {
                         } else {
                             // Handle failure
                             val errorBody = response.errorBody()?.string()
-                            Log.e("Error", "Error add cart: $errorBody") // Log response body
+                            Log.e("Error", "Error add cart: $errorBody")
                             // Display error message to the user
                             val errorMessage = "Failed add cart: $errorBody"
                             Toast.makeText(applicationContext, errorMessage, Toast.LENGTH_LONG).show()
@@ -105,7 +106,6 @@ class ProductFullDetail: AppCompatActivity() {
                     // Handle exception
                     val errorMessage = "Error add cart: ${e.message}"
                     Log.e("Error", errorMessage)
-                    // Display error message to the user
                     Toast.makeText(applicationContext, errorMessage, Toast.LENGTH_LONG).show()
                 }
             }
@@ -123,6 +123,7 @@ class ProductFullDetail: AppCompatActivity() {
             }
         }
     }
+
     private fun updatePrice() {
         val totalPrice = product?.product_price?.toDouble() ?: 0.0 * quantity
         val formattedPrice = String.format("%.2f", totalPrice)

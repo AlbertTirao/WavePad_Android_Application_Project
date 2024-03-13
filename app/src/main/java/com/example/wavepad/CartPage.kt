@@ -85,10 +85,10 @@ class CartPage : AppCompatActivity() {
 
             // Set data to the views
             productTitle.text = CartItemResponse.product_name
-            productPrice.text = "Price: $${CartItemResponse.product_price}"
+            productPrice.text = "Price: ₱${CartItemResponse.product_price}"
             productSize.text = "Size: ${CartItemResponse.size}"
             productQuantity.text = "Quantity: ${CartItemResponse.quantity}"
-            productTotalPrice.text = "Total: $${CartItemResponse.total}"
+            productTotalPrice.text = "Total: ₱${CartItemResponse.total}"
 
             // Set click listener for delete button
             deleteButton.setOnClickListener {

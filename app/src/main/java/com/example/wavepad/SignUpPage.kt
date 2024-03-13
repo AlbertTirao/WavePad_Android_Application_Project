@@ -72,6 +72,11 @@ class SignUpPage : AppCompatActivity() {
                 mobilephone.requestFocus()
                 return@setOnClickListener
             }
+            if(inputMobilePhone.length != 11){
+                mobilephone.error = "Phone Number must be 11 numbers"
+                mobilephone.requestFocus()
+                return@setOnClickListener
+            }
             if(inputGender.isEmpty()){
                 gender.error = "Gender Required Required"
                 gender.requestFocus()
@@ -79,6 +84,11 @@ class SignUpPage : AppCompatActivity() {
             }
             if(inputAgeText.isEmpty()){
                 age.error = "Age Required"
+                age.requestFocus()
+                return@setOnClickListener
+            }
+            if(inputAgeText.length != 2){
+                age.error = "Age Must have Two Number"
                 age.requestFocus()
                 return@setOnClickListener
             }
