@@ -11,6 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <Button
+            android:id="@+id/button_return_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Return to Home"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"/>
+
+
         <TextView
             android:id="@+id/billing_details_heading"
             android:layout_width="wrap_content"
@@ -19,7 +30,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_return_home"
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"/>
 
@@ -72,6 +83,18 @@
             android:layout_marginTop="10dp"/>
 
         <EditText
+            android:id="@+id/edit_state"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="State"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_town_city"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
             android:id="@+id/edit_country"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -79,7 +102,7 @@
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_town_city"
+            app:layout_constraintTop_toBottomOf="@+id/edit_state"
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"/>
 
@@ -96,18 +119,6 @@
             android:layout_marginTop="10dp"/>
 
         <EditText
-            android:id="@+id/edit_email"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Email Address"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_postal_zip"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"/>
-
-        <EditText
             android:id="@+id/edit_phone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -115,7 +126,7 @@
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_email"
+            app:layout_constraintTop_toBottomOf="@+id/edit_postal_zip"
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"/>
 
