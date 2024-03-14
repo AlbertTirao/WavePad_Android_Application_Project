@@ -2,8 +2,6 @@
 <resources>
     <string-array name="sizes_array">
         <item>4.25 x 6.87 inch</item>
-        <item>5 x 7 inch</item>
-        <item>8 x 10 inch</item>
-        <!-- Add more sizes here as needed -->
+        <item>4.25 x 6.97 inch</item>
     </string-array>
 </resources>
