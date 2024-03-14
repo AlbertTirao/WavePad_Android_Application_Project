@@ -31,8 +31,7 @@ class CheckOutPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.checkout)
 
-        editFirstName = findViewById(R.id.edit_first_name)
-        editLastName = findViewById(R.id.edit_last_name)
+        editFirstName = findViewById(R.id.name)
         editStreetAddress = findViewById(R.id.edit_street_address)
         editTownCity = findViewById(R.id.edit_town_city)
         editState = findViewById(R.id.edit_state)

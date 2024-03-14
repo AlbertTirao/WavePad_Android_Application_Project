@@ -40,10 +40,22 @@
         android:text="Total Price:"
         android:textSize="14sp" />
 
-    <Button
-        android:id="@+id/delete_button"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Delete" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete" />
+
+        <Button
+            android:id="@+id/checkout_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Checkout" />
+    </LinearLayout>
 
 </LinearLayout>
