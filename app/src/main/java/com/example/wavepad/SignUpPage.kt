@@ -47,7 +47,7 @@ class SignUpPage : AppCompatActivity() {
                 name.requestFocus()
                 return@setOnClickListener
             }
-            if(inputName.length !in 8..99){
+            if(inputName.length !in 6..99){
                 name.error = "Nickname Must Be 8 Character Long"
                 name.requestFocus()
                 return@setOnClickListener
@@ -62,7 +62,7 @@ class SignUpPage : AppCompatActivity() {
                 password.requestFocus()
                 return@setOnClickListener
             }
-            if(inputPassword.length !in 8..99){
+            if(inputPassword.length !in 6..99){
                 password.error = "Password Must Be 8 Character Long"
                 password.requestFocus()
                 return@setOnClickListener

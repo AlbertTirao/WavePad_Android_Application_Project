@@ -15,7 +15,6 @@ import retrofit2.Response
 class CheckOutPage : AppCompatActivity() {
 
     private lateinit var editFirstName: EditText
-    private lateinit var editLastName: EditText
     private lateinit var editStreetAddress: EditText
     private lateinit var editTownCity: EditText
     private lateinit var editState: EditText
@@ -44,6 +43,75 @@ class CheckOutPage : AppCompatActivity() {
 
         val productName = intent.getStringExtra("PRODUCT_NAME")
         val quantity = intent.getIntExtra("QUANTITY", 1)
+
+        buttonCheckout.setOnClickListener {
+            val name = editFirstName.text.toString().trim()
+            val streetaddress = editStreetAddress.text.toString().trim()
+            val towncity = editTownCity.text.toString().trim()
+            val state = editState.text.toString().trim()
+            val country = editCountry.text.toString().trim()
+            val postalzipcode = editPostalZip.text.toString().trim()
+            val phonenumber = editPhone.text.toString().trim()
+
+            if (name.isEmpty()) {
+                editFirstName.error = "Name Required"
+                editFirstName.requestFocus()
+                return@setOnClickListener
+            }
+            if(name.length !in 6..99){
+                editFirstName.error = "Nickname Must Be 8 Character Long"
+                editFirstName.requestFocus()
+                return@setOnClickListener
+            }
+
+            if (streetaddress.isEmpty()) {
+                editStreetAddress.error = "Street Address Required"
+                editStreetAddress.requestFocus()
+                return@setOnClickListener
+            }
+
+            if (towncity.isEmpty()) {
+                editTownCity.error = "Town/City Required"
+                editTownCity.requestFocus()
+                return@setOnClickListener
+            }
+
+            if (state.isEmpty()) {
+                editState.error = "State Required"
+                editState.requestFocus()
+                return@setOnClickListener
+            }
+
+            if (country.isEmpty()) {
+                editCountry.error = "Country Required"
+                editCountry.requestFocus()
+                return@setOnClickListener
+            }
+
+            if (postalzipcode.isEmpty()) {
+                editPostalZip.error = "Postal/Zip Required"
+                editPostalZip.requestFocus()
+                return@setOnClickListener
+            }
+
+            if (postalzipcode.length != 4) {
+                editPostalZip.error = "Postal/Zip must be 4 numbers"
+                editPostalZip.requestFocus()
+                return@setOnClickListener
+            }
+
+            if (phonenumber.isEmpty()) {
+                editPhone.error = "Phone Number Required"
+                editPhone.requestFocus()
+                return@setOnClickListener
+            }
+
+            if (phonenumber.length != 11) {
+                editPhone.error = "Phone Number must be 11 numbers"
+                editPhone.requestFocus()
+                return@setOnClickListener
+            }
+        }
 
         textProductName.text = productName
         textQuantity.text = "Quantity: $quantity"

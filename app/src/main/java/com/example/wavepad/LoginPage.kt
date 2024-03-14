@@ -45,7 +45,7 @@ class LoginPage : AppCompatActivity() {
                 edittextpassword.requestFocus()
                 return@setOnClickListener
             }
-            if(password.length !in 8..99){
+            if(password.length !in 6..99){
                 edittextpassword.error = "Password Must Be 8 Character Long"
                 edittextpassword.requestFocus()
                 return@setOnClickListener
