@@ -82,6 +82,7 @@ class CartPage : AppCompatActivity() {
             val productQuantity: TextView = itemView.findViewById(R.id.product_quantity)
             val productTotalPrice: TextView = itemView.findViewById(R.id.product_total_price)
             val deleteButton: Button = itemView.findViewById(R.id.delete_button)
+            val checkoutButton: Button = itemView.findViewById(R.id.checkout_button)
 
             // Set data to the views
             productTitle.text = CartItemResponse.product_name
@@ -93,6 +94,12 @@ class CartPage : AppCompatActivity() {
             // Set click listener for delete button
             deleteButton.setOnClickListener {
                 deleteCartItem(CartItemResponse.product_name)
+            }
+
+            checkoutButton.setOnClickListener {
+                val checkoutIntent = Intent(this@CartPage, CheckOutPage::class.java)
+                startActivity(checkoutIntent)
+                finish()
             }
 
             // Add the inflated layout to the container layout

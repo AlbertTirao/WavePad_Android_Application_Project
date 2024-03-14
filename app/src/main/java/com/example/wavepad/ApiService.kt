@@ -4,7 +4,6 @@ import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
-import retrofit2.http.DELETE;
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -52,5 +51,11 @@ interface ApiService {
         @Query("user_id") userId: Int,
         @Query("product_name") productName: String
     ): Response<ResponseBody>
+
+    @POST("/api/user/cart/checkout/{userId}")
+    fun checkout(
+        @Path("userId") userId: Int,
+        @Body request: CheckoutRequest
+    ): Call<CheckoutResponse>
 
 }
